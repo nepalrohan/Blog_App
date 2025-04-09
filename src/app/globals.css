@@ -5,11 +5,24 @@
   --foreground: #171717;
 }
 
+@theme {
+ 
+
+
+  --color-primary: #A5C9CA;
+  --color-secondary: #395B64;
+  --color-mycolor1: #E7F6F2;
+  --color-mycolor2: #2C3333;
+
+
+
+}
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
 }
 
 @media (prefers-color-scheme: dark) {
