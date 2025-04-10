@@ -1,9 +1,7 @@
 import EditBlogPage from "@/app/(components)/BlogEdit";
 
-interface Props {
-  params: { id: string };
-}
 
-export default function BlogDetailPage({ params }: Props) {
+
+export default function BlogDetailPage({ params }: { params: { id: string } }) {
   return <EditBlogPage id={params.id} />;
 }

@@ -1,9 +1,7 @@
 import BlogDetailPageComponent from "@/app/(components)/BlogDetail";
 
-interface Props {
-  params: { id: string };
-}
 
-export default function BlogDetailPage({ params }: Props) {
+
+export default function BlogDetailPage({ params }: { params: { id: string } }) {
   return <BlogDetailPageComponent id={params.id} />;
 }
