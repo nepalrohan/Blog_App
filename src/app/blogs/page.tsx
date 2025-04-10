@@ -118,43 +118,44 @@ const BlogsPage = () => {
       ) : (
         <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {blogs.map((blog) => (
-            <div
-              key={blog.id}
-              className="overflow-hidden flex flex-col h-full shadow-md shadow-primary   p-3"
-            >
-              <div className="relative h-48 w-full overflow-hidden mb-1">
-                <img
-                  src={blog.image}
-                  alt={blog.title}
-                  className="w-full h-full object-cover"
-               
-                />
-              </div>
+          
+              <div className="overflow-hidden flex flex-col h-full shadow-lg  relative bg-mycolor1 p-3">
+                <div className="relative h-48 w-full overflow-hidden mb-1">
+                  <img
+                    src={blog.image}
+                    alt={blog.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
 
-              <h2 className="line-clamp-1 text-xl font-bold text-secondary">
-                {blog.title}
-              </h2>
-              <p className="text-mycolor2">
-                Published on:{new Date(blog.createdAt).toLocaleDateString()}
-              </p>
-
-              <div>
-                <p className="line-clamp-2 text-sm text-secondary">
-                  {blog.description}
+                <h2 className="line-clamp-1 text-xl font-bold text-secondary">
+                  {blog.title}
+                </h2>
+                <p className="text-mycolor2">
+                  Published on:{new Date(blog.createdAt).toLocaleDateString()}
                 </p>
+
+                <div>
+                  <p className="line-clamp-2 text-sm text-secondary">
+                    {blog.description}
+                  </p>
+                </div>
+                <footer className="mt-2 flex justify-between ">
+                  <button className="p-2 rounded bg-secondary text-mycolor1 cursor-pointer font-semibold">
+                    <Link href={`/blogs/edit/${blog.id}`}>Edit</Link>
+                  </button>
+                  <button
+                    className="p-2 rounded bg-red-600 text-mycolor1 cursor-pointer font-semibold"
+                    onClick={() => handleDelete(blog.id)}
+                  >
+                    Delete
+                  </button>
+                </footer>
+                <Link href={`/blogs/details/${blog.id.toString()}`} key={blog.id}>
+                <button className="shadow-lg absolute top-0 right-0 z-50 bg-secondary font-semibold p-1 rounded-bl-2xl text-mycolor1 cursor-pointer">View more</button>
+              </Link>
               </div>
-              <footer className="mt-2 flex justify-between ">
-                <button className="p-2 rounded bg-secondary text-mycolor1 cursor-pointer font-semibold">
-                  <Link href={`/blogs/edit/${blog.id}`}>Edit</Link>
-                </button>
-                <button
-                  className="p-2 rounded bg-red-600 text-mycolor1 cursor-pointer font-semibold"
-                  onClick={() => handleDelete(blog.id)}
-                >
-                  Delete
-                </button>
-              </footer>
-            </div>
+            
           ))}
         </div>
       )}
