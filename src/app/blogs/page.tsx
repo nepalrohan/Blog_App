@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 
 interface Blog {
   id: string;
@@ -119,30 +118,41 @@ const BlogsPage = () => {
       ) : (
         <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {blogs.map((blog) => (
-            <div key={blog.id} className="overflow-hidden flex flex-col h-full shadow-md  bg-mycolor1 p-3">
+            <div
+              key={blog.id}
+              className="overflow-hidden flex flex-col h-full shadow-md   p-3"
+            >
               <div className="relative h-48 w-full overflow-hidden mb-1">
                 <img
-                  src={blog.image || "https://placehold.co/600x400"}
+                  src={blog.image}
                   alt={blog.title}
                   className="w-full h-full object-cover"
-                  onError={(e) => {
-                    // Fallback to a placeholder if image fails to load
-                    e.currentTarget.src = "https://placehold.co/600x400";
-                  }}
+               
                 />
               </div>
 
-              <h2 className="line-clamp-1 text-xl font-bold text-secondary">{blog.title}</h2>
-              <p className="text-mycolor2">Published on:{new Date(blog.createdAt).toLocaleDateString()}</p>
+              <h2 className="line-clamp-1 text-xl font-bold text-secondary">
+                {blog.title}
+              </h2>
+              <p className="text-mycolor2">
+                Published on:{new Date(blog.createdAt).toLocaleDateString()}
+              </p>
 
               <div>
-                <p className="line-clamp-3 text-sm text-secondary">{blog.description}</p>
+                <p className="line-clamp-3 text-sm text-secondary">
+                  {blog.description}
+                </p>
               </div>
               <footer className="mt-2 flex justify-between">
-                <button  className="p-2 rounded bg-secondary text-mycolor1 cursor-pointer font-semibold">
+                <button className="p-2 rounded bg-secondary text-mycolor1 cursor-pointer font-semibold">
                   <Link href={`/blogs/edit/${blog.id}`}>Edit</Link>
                 </button>
-                <button  className="p-2 rounded bg-red-600 text-mycolor1 cursor-pointer font-semibold" onClick={() => handleDelete(blog.id)}>Delete</button>
+                <button
+                  className="p-2 rounded bg-red-600 text-mycolor1 cursor-pointer font-semibold"
+                  onClick={() => handleDelete(blog.id)}
+                >
+                  Delete
+                </button>
               </footer>
             </div>
           ))}
