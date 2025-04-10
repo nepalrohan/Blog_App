@@ -15,7 +15,11 @@ interface Blog {
   createdAt: string;
 }
 
-export default function EditBlogPage({ params }: { params: { id: string } }) {
+type Props = {
+  params: { id: string };
+};
+
+export default function EditBlogPage({ params }: Props) {
   const router = useRouter();
   const [blog, setBlog] = useState<Blog | null>(null);
   const [isLoading, setIsLoading] = useState(true);

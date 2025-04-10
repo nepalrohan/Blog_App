@@ -13,7 +13,11 @@ interface Blog {
   createdAt: string;
 }
 
-const BlogDetailPage = ({ params }: { params: { id: string } }) => {
+type Props = {
+    params: { id: string };
+  };
+
+const BlogDetailPage = ({ params }: Props) => {
   const router = useRouter();
 
   const [blog, setBlog] = useState<Blog | null>(null);
