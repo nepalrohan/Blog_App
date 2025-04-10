@@ -110,7 +110,7 @@ const NewBlogPage = () => {
           
             </div>
           </div>
-          <footer className="mt-2">
+          <footer className="mt-2 ">
             <button type="submit"  className={`w-full font-bold text-lg text-mycolor1 cursor-pointer bg-secondary rounded py-2 mt-2 
                 ${isLoading ? "opacity-50 cursor-not-allowed" : ""}`} disabled={isLoading}>
               {isLoading ? "Creating..." : "Create Blog"}

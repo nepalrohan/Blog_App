@@ -82,7 +82,7 @@ const BlogsPage = () => {
   }
 
   return (
-    <div className="container py-8 px-2">
+    <div className="container py-8 px-2 ">
       <div className="flex justify-between items-center mb-8 border-b-2 border-secondary pb-4">
         <div>
           <h1 className="text-3xl font-extrabold text-secondary">Blog-Store</h1>
@@ -120,7 +120,7 @@ const BlogsPage = () => {
           {blogs.map((blog) => (
             <div
               key={blog.id}
-              className="overflow-hidden flex flex-col h-full shadow-md   p-3"
+              className="overflow-hidden flex flex-col h-full shadow-md shadow-primary   p-3"
             >
               <div className="relative h-48 w-full overflow-hidden mb-1">
                 <img
@@ -139,11 +139,11 @@ const BlogsPage = () => {
               </p>
 
               <div>
-                <p className="line-clamp-3 text-sm text-secondary">
+                <p className="line-clamp-2 text-sm text-secondary">
                   {blog.description}
                 </p>
               </div>
-              <footer className="mt-2 flex justify-between">
+              <footer className="mt-2 flex justify-between ">
                 <button className="p-2 rounded bg-secondary text-mycolor1 cursor-pointer font-semibold">
                   <Link href={`/blogs/edit/${blog.id}`}>Edit</Link>
                 </button>

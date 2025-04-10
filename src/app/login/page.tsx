@@ -55,7 +55,7 @@ const LoginPage = () => {
       setSuccessMessage("Login successful.");
 
         setIsLoading(false);
-        router.push("/blogs");
+        router.push("/");
       }, 1000);
     } else {
       setError("Invalid email or password.");
