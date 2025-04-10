@@ -119,7 +119,7 @@ const BlogsPage = () => {
         <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {blogs.map((blog) => (
           
-              <div className="overflow-hidden flex flex-col h-full shadow-lg  relative bg-mycolor1 p-3">
+              <div className="overflow-hidden flex flex-col h-full shadow-lg  relative bg-mycolor2 p-3">
                 <div className="relative h-48 w-full overflow-hidden mb-1">
                   <img
                     src={blog.image}
@@ -128,31 +128,31 @@ const BlogsPage = () => {
                   />
                 </div>
 
-                <h2 className="line-clamp-1 text-xl font-bold text-secondary">
+                <h2 className="line-clamp-1 text-xl font-bold text-mycolor1">
                   {blog.title}
                 </h2>
-                <p className="text-mycolor2">
+                <p className="text-primary">
                   Published on:{new Date(blog.createdAt).toLocaleDateString()}
                 </p>
 
                 <div>
-                  <p className="line-clamp-2 text-sm text-secondary">
+                  <p className="line-clamp-2 text-sm text-primary">
                     {blog.description}
                   </p>
                 </div>
                 <footer className="mt-2 flex justify-between ">
-                  <button className="p-2 rounded bg-secondary text-mycolor1 cursor-pointer font-semibold">
+                  <button className="p-2 rounded bg-mycolor1 w-1/4 text-secondary cursor-pointer font-semibold">
                     <Link href={`/blogs/edit/${blog.id}`}>Edit</Link>
                   </button>
                   <button
-                    className="p-2 rounded bg-red-600 text-mycolor1 cursor-pointer font-semibold"
+                    className="p-2 rounded bg-red-600 text-mycolor1 cursor-pointer w-1/4 font-semibold"
                     onClick={() => handleDelete(blog.id)}
                   >
                     Delete
                   </button>
                 </footer>
                 <Link href={`/blogs/details/${blog.id.toString()}`} key={blog.id}>
-                <button className="shadow-lg absolute top-0 right-0 z-50 bg-secondary font-semibold p-1 rounded-bl-2xl text-mycolor1 cursor-pointer">View more</button>
+                <button className="shadow-lg absolute top-0 right-0 z-50 bg-primary font-semibold p-1.5 hover:bg-secondary hover:text-mycolor1 hover:shadow-primary transition-all duration-300 ease-in-out rounded-bl-2xl text-secondary cursor-pointer">View more</button>
               </Link>
               </div>
             
